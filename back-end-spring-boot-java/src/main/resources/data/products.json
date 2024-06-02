@@ -1,4 +1,50 @@
 [
-  { "name": "Product1", "price": 1000 },
-  { "name": "Product2", "price": 1000 }
+  {
+    "name": "Asus",
+    "price": 17631614
+  },
+  {
+    "name": "BlackBerry",
+    "price": 16796656
+  },
+  {
+    "name": "Motorola",
+    "price": 16111831
+  },
+  {
+    "name": "Huawei",
+    "price": 10510829
+  },
+  {
+    "name": "Honor",
+    "price": 15977772
+  },
+  {
+    "name": "Maxwest",
+    "price": 1318649
+  },
+  {
+    "name": "QMobile",
+    "price": 8926307
+  },
+  {
+    "name": "ZTE",
+    "price": 19718355
+  },
+  {
+    "name": "Oppo",
+    "price": 14614059
+  },
+  {
+    "name": "Oppo",
+    "price": 15325573
+  },
+  {
+    "name": "Infinix",
+    "price": 12423573
+  },
+  {
+    "name": "Iphone",
+    "price": 23443573
+  }
 ]

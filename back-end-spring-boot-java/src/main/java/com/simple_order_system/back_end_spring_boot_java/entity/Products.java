@@ -23,8 +23,16 @@ public class Products {
     @Column(name = "price")
     private Double price;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Carts> carts;
+    // @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private List<Carts> carts;
+
+    @ManyToMany
+    @JoinTable(
+        name = "product_types",
+        joinColumns = @JoinColumn(name = "product_id"),
+        inverseJoinColumns = @JoinColumn(name = "type_id")
+    )
+    private List<Types> Types;
 
     @Column(name = "createdAt")
     private LocalDateTime createdAt;

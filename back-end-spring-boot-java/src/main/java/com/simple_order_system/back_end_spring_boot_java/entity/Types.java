@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.Set;
+// import java.util.Set;
 
 @Getter
 @Setter
@@ -21,8 +21,8 @@ public class Types {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Product_Types> productTypes;
+    // @OneToMany(mappedBy = "type", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private Set<Product_Types> productTypes;
 
     @Column(name = "createdAt")
     private LocalDateTime createdAt;

@@ -1,1 +1,14 @@
-[{ "name": "Type1" }, { "name": "Type2" }]
+[
+  {
+    "name": "book"
+  },
+  {
+    "name": "laptop"
+  },
+  {
+    "name": "phone"
+  },
+  {
+    "name": "accessories"
+  }
+]
