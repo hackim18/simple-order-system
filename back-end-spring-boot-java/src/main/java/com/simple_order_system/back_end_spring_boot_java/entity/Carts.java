@@ -16,10 +16,6 @@ public class Carts {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
-    private Products product;
-
     @Column(name = "quantity")
     private Integer quantity;
 
@@ -34,6 +30,10 @@ public class Carts {
 
     @Column(name = "updatedAt")
     private LocalDateTime updatedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private Products product;
 
     @PrePersist
     protected void onCreate() {
