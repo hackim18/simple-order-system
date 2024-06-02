@@ -23,11 +23,21 @@ public class Carts {
     @Column(name = "quantity")
     private Integer quantity;
 
-    @Column(name = "created_at")
+    @Column(name = "total")
+    private Double total;
+
+    @Column(name = "type")
+    private String type;
+
+    @Column(name = "createdAt")
     private LocalDateTime createdAt;
+
+    @Column(name = "updatedAt")
+    private LocalDateTime updatedAt;
 
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
     }
 }

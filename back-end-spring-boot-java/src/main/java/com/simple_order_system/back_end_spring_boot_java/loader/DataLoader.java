@@ -30,27 +30,28 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        // Load products
         ObjectMapper mapper = new ObjectMapper();
-
-        // Load Types
-        InputStream typesInputStream = new ClassPathResource("data/types.json").getInputStream();
-        List<Types> types = mapper.readValue(typesInputStream, new TypeReference<List<Types>>() {});
-        typesRepository.saveAll(types);
-
-        // Load Products
-        InputStream productsInputStream = new ClassPathResource("data/products.json").getInputStream();
-        List<Products> products = mapper.readValue(productsInputStream, new TypeReference<List<Products>>() {});
+        TypeReference<List<Products>> typeReference = new TypeReference<List<Products>>(){};
+        InputStream inputStream = new ClassPathResource("data/products.json").getInputStream();
+        List<Products> products = mapper.readValue(inputStream, typeReference);
         productsRepository.saveAll(products);
+        System.out.println("Products Loaded");
 
-        // Load ProductTypes
-        InputStream productTypesInputStream = new ClassPathResource("data/productTypes.json").getInputStream();
-        List<Product_Types> productTypes = mapper.readValue(productTypesInputStream, new TypeReference<List<Product_Types>>() {});
-        
-        for (Product_Types pt : productTypes) {
-            Types type = typesRepository.findById(pt.getTypeId()).orElseThrow();
-            pt.setType(type); // Change setTypes to setType
-            type.getProductTypes().add(pt);
-        }
+        // Load types
+        TypeReference<List<Types>> typeReferenceTypes = new TypeReference<List<Types>>(){};
+        InputStream inputStreamTypes = new ClassPathResource("data/types.json").getInputStream();
+        List<Types> types = mapper.readValue(inputStreamTypes, typeReferenceTypes);
+        typesRepository.saveAll(types);
+        System.out.println("Types Loaded");
+
+        // Load product_types
+        TypeReference<List<Product_Types>> typeReferenceProductTypes = new TypeReference<List<Product_Types>>(){};
+        InputStream inputStreamProductTypes = new ClassPathResource("data/product_types.json").getInputStream();
+        List<Product_Types> productTypes = mapper.readValue(inputStreamProductTypes, typeReferenceProductTypes);
         productTypesRepository.saveAll(productTypes);
+        System.out.println("Product_Types Loaded");
+
+        
     }
 }

@@ -20,20 +20,22 @@ public class Products {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "description")
-    private String description;
-
     @Column(name = "price")
     private Double price;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Carts> carts;
 
-    @Column(name = "created_at")
+    @Column(name = "createdAt")
     private LocalDateTime createdAt;
+
+    @Column(name = "updatedAt")
+    private LocalDateTime updatedAt;
 
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
     }
+
 }

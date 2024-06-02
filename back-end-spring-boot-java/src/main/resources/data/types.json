@@ -1,4 +1,1 @@
-[
-  { "id": 1, "name": "Type1" },
-  { "id": 2, "name": "Type2" }
-]
+[{ "name": "Type1" }, { "name": "Type2" }]
