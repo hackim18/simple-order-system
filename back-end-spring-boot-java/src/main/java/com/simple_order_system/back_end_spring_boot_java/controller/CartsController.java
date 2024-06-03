@@ -9,27 +9,27 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/carts")
+@RestController // Anotasi untuk menandai bahwa ini adalah Controller REST
+@RequestMapping("/carts") // Menentukan path dasar untuk semua handler di dalam controller ini
 public class CartsController {
 
-    @Autowired
+    @Autowired // Injeksi otomatis service yang diperlukan oleh controller ini
     private CartsService cartsService;
 
-    @GetMapping
+    @GetMapping // Handler untuk mendapatkan semua data cart
     public List<Carts> getAllCarts() {
-        return cartsService.getAllCarts();
+        return cartsService.getAllCarts(); // Memanggil service untuk mendapatkan data
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}") // Handler untuk menghapus cart berdasarkan ID
     public ResponseEntity<Void> deleteCartById(@PathVariable Long id) {
-        cartsService.deleteCartById(id);
-        return ResponseEntity.noContent().build();
+        cartsService.deleteCartById(id); // Memanggil service untuk menghapus data
+        return ResponseEntity.noContent().build(); // Mengembalikan response tanpa konten
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add") // Handler untuk menambahkan cart baru
     public ResponseEntity<Carts> addCart(@RequestBody CartRequest cartRequest) {
-        Carts cart = cartsService.addCart(cartRequest);
-        return ResponseEntity.ok(cart);
+        Carts cart = cartsService.addCart(cartRequest); // Memanggil service untuk menambah data
+        return ResponseEntity.ok(cart); // Mengembalikan response dengan data yang ditambahkan
     }
 }

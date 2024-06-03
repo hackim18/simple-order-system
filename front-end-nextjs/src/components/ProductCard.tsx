@@ -9,10 +9,10 @@ export default function ProductCard({ product }: { product: ProductType }) {
   const [type, setType] = useState<string>("");
 
   useEffect(() => {
-    if (product.Types.length > 0) {
-      setType(product.Types[0].name);
+    if (product.types.length > 0) {
+      setType(product.types[0].name);
     }
-  }, [product.Types]);
+  }, [product.types]);
 
   const handleAddCart = async () => {
     console.log("🚀 ~ handleAddCart ~ product:", product.id, quantity);
@@ -46,7 +46,7 @@ export default function ProductCard({ product }: { product: ProductType }) {
           <div className="col-sm-9">
             <div className="input-group">
               <select className="form-control" id="productType" value={type} onChange={(e) => setType(e.target.value)}>
-                {product.Types.map((type) => {
+                {product.types.map((type) => {
                   return (
                     <option key={type.id} value={type.name}>
                       {type.name}

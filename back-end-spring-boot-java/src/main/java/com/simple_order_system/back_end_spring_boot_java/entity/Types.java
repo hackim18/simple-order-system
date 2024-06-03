@@ -4,36 +4,32 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-// import java.util.Set;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Entity
-@Table(name = "types")
+@Getter // Anotasi untuk membuat method getter secara otomatis
+@Setter // Anotasi untuk membuat method setter secara otomatis
+@NoArgsConstructor // Anotasi untuk membuat konstruktor tanpa argumen
+@AllArgsConstructor // Anotasi untuk membuat konstruktor dengan semua argumen
+@Entity // Menandakan bahwa kelas ini adalah entitas dalam database
+@Table(name = "types") // Menentukan nama tabel untuk entitas ini di database
 public class Types {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // Menandakan bahwa field ini adalah Primary Key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Strategi untuk pembuatan nilai ID secara otomatis
     private long id;
 
-    @Column(name = "name")
+    @Column(name = "name") // Menentukan kolom untuk field ini di tabel dengan nama "name"
     private String name;
 
-    // @OneToMany(mappedBy = "type", cascade = CascadeType.ALL, orphanRemoval = true)
-    // private Set<Product_Types> productTypes;
-
-    @Column(name = "createdAt")
+    @Column(name = "createdAt") // Menentukan kolom untuk field ini di tabel dengan nama "createdAt"
     private LocalDateTime createdAt;
 
-    @Column(name = "updatedAt")
+    @Column(name = "updatedAt") // Menentukan kolom untuk field ini di tabel dengan nama "updatedAt"
     private LocalDateTime updatedAt;
 
-    @PrePersist
+    @PrePersist // Metode ini akan dipanggil sebelum entitas disimpan ke database
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
+        createdAt = LocalDateTime.now(); // Menetapkan waktu saat ini ke createdAt
+        updatedAt = LocalDateTime.now(); // Menetapkan waktu saat ini ke updatedAt
     }
 
 }

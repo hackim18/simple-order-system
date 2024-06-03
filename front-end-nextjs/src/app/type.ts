@@ -1,13 +1,13 @@
 export type Products = {
-  totalItems: number;
   totalPages: number;
-  currentPage: number;
-  products: ProductType[];
+  totalElements: number;
+  size: number;
+  content: ProductType[];
 };
 export type ProductType = {
   id: number;
   name: string;
-  Types: Type[];
+  types: Type[];
   price: number;
   createdAt: Date;
   updatedAt: Date;
@@ -26,5 +26,5 @@ export type CartType = {
   total: number;
   createdAt: Date;
   updatedAt: Date;
-  Product: ProductType;
+  product: ProductType;
 };

@@ -6,6 +6,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface ProductsService {
-    Page<Products> getAllProducts(Pageable pageable);
+    Page<Products> getAllProducts(Pageable pageable); // Metode untuk mendapatkan semua produk dengan paginasi
     
 }

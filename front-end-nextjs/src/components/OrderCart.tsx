@@ -83,9 +83,14 @@ export default function OrderCart() {
                   id={`check-${cart.id}`}
                 />
               </th>
-              <td>{cart.Product.name}</td>
+              <td>{cart.product.name}</td>
               <td>{cart.type}</td>
-              <td>{cart.Product.price}</td>
+              <td>
+                {cart.product.price.toLocaleString("id-ID", {
+                  style: "currency",
+                  currency: "IDR",
+                })}
+              </td>
               <td>{cart.quantity}</td>
               <td>
                 {cart.total.toLocaleString("id-ID", {

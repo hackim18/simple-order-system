@@ -2,13 +2,9 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Cart extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+    // Mendefinisikan relasi antara model Cart dan Product
     static associate(models) {
-      // define association here
+      // Cart memiliki foreign key 'productId' yang mengacu pada 'id' dari model Product
       Cart.belongsTo(models.Product, {
         foreignKey: "productId",
         targetKey: "id",
@@ -31,20 +27,6 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      // name: {
-      //   allowNull: false,
-      //   type: DataTypes.STRING,
-      //   validate: {
-      //     notEmpty: {
-      //       args: true,
-      //       msg: "Name cannot be empty",
-      //     },
-      //     notNull: {
-      //       args: true,
-      //       msg: "Name cannot be empty",
-      //     },
-      //   },
-      // },
       type: {
         allowNull: false,
         type: DataTypes.STRING,
@@ -59,20 +41,6 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
-      // price: {
-      //   allowNull: false,
-      //   type: DataTypes.INTEGER,
-      //   validate: {
-      //     notEmpty: {
-      //       args: true,
-      //       msg: "Price cannot be empty",
-      //     },
-      //     notNull: {
-      //       args: true,
-      //       msg: "Price cannot be empty",
-      //     },
-      //   },
-      // },
       quantity: {
         allowNull: false,
         type: DataTypes.INTEGER,
@@ -94,8 +62,5 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "Cart",
     }
   );
-  // Cart.beforeCreate(async (cart) => {
-  //   cart.total = cart.price * cart.quantity;
-  // });
   return Cart;
 };

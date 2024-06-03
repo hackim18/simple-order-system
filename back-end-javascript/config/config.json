@@ -2,14 +2,14 @@
   "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "mobile_order_system",
+    "database": "simple_order_system_nodejs",
     "host": "localhost",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
     "password": "postgres",
-    "database": "mobile_order_system_test",
+    "database": "simple_order_system_test",
     "host": "localhost",
     "dialect": "postgres"
   },

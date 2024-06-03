@@ -12,7 +12,6 @@ export default function Home() {
 
         <div className="col-md-6">
           <h2>Order Cart</h2>
-          {/* Order cart content goes here */}
           <OrderCart />
         </div>
       </div>

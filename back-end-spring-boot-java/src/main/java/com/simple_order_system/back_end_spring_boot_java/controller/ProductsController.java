@@ -8,14 +8,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController // Anotasi untuk menandai kelas ini sebagai Controller REST
 public class ProductsController {
 
-    @Autowired
+    @Autowired // Injeksi otomatis service yang diperlukan
     private ProductsService productsService;
 
-    @GetMapping("/products")
+    @GetMapping("/products") // Mendefinisikan endpoint GET untuk produk
     public Page<Products> getAllProducts(Pageable pageable) {
-        return productsService.getAllProducts(pageable);
+        return productsService.getAllProducts(pageable); // Mengambil semua produk dengan paging
     }
 }

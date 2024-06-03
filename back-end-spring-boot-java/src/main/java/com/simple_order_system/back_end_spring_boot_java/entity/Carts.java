@@ -6,14 +6,14 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@Entity
-@Table(name = "carts")
+@Getter // Getter otomatis untuk semua field
+@Setter // Setter otomatis untuk semua field
+@Entity // Menandakan bahwa kelas ini adalah entitas dalam database
+@Table(name = "carts") // Menentukan nama tabel untuk entitas ini di database
 public class Carts {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // Menandakan field ini sebagai Primary Key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Strategi untuk pembuatan nilai ID secara otomatis
     private Long id;
 
     @Column(name = "quantity")
@@ -31,13 +31,13 @@ public class Carts {
     @Column(name = "updatedAt")
     private LocalDateTime updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false)
+    @ManyToOne // Menandakan hubungan Many-to-One dengan entitas lain
+    @JoinColumn(name = "product_id", nullable = false) // Menentukan kolom join
     private Products product;
 
-    @PrePersist
+    @PrePersist // Metode ini akan dipanggil sebelum entitas disimpan
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
-        updatedAt = LocalDateTime.now();
+        createdAt = LocalDateTime.now(); // Set waktu saat ini sebagai waktu pembuatan
+        updatedAt = LocalDateTime.now(); // Set waktu saat ini sebagai waktu pembaruan
     }
 }

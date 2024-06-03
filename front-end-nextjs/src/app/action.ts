@@ -5,7 +5,7 @@ import { CartType, ProductType, Products } from "./type";
 import { redirect } from "next/navigation";
 
 export async function getAllProducts({ page, limit }: { page: number; limit: number }): Promise<Products> {
-  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + `/products?page=${page}&limit=${limit}`, {
+  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + `/products?page=${page}&size=${limit}`, {
     cache: "no-cache",
   });
   if (!res.ok) {
@@ -25,8 +25,6 @@ export async function getAllOrderCart(): Promise<CartType[]> {
 }
 
 export async function deleteOrderCart(id: number): Promise<void> {
-  revalidatePath("/");
-  console.log("🚀 ~ deleteOrderCart ~ Promise:", "Promise");
   const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + `/carts/${id}`, {
     method: "DELETE",
     cache: "no-cache",
@@ -35,12 +33,11 @@ export async function deleteOrderCart(id: number): Promise<void> {
     throw new Error("Failed to delete order cart");
   } else {
     revalidatePath("/");
-    redirect("/");
   }
 }
 
 export async function addProductOnCart(productId: number, quantity: number, type: string): Promise<void> {
-  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/carts", {
+  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + "/carts/add", {
     cache: "no-cache",
     method: "POST",
     headers: {

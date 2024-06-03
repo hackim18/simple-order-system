@@ -23,40 +23,40 @@ public class CartsServiceImpl implements CartsService {
 
     @Override
     public List<Carts> getAllCarts() {
-        return cartsRepository.findAll();
+        return cartsRepository.findAll(); // Mengambil semua keranjang
     }
 
     @Override
     public void deleteCartById(Long id) {
-        cartsRepository.deleteById(id);
+        cartsRepository.deleteById(id); // Menghapus keranjang berdasarkan ID
     }
 
     @Override
     public Carts addCart(CartRequest cartRequest) {
         Optional<Products> productOpt = productsRepository.findById(cartRequest.getProductId());
         if (!productOpt.isPresent()) {
-            throw new RuntimeException("Product not found");
+            throw new RuntimeException("Product not found"); // Melempar kesalahan jika produk tidak ditemukan
         }
 
         Products product = productOpt.get();
-        double totalPrice = product.getPrice() * cartRequest.getQuantity();
+        double totalPrice = product.getPrice() * cartRequest.getQuantity(); // Menghitung total harga
 
         Optional<Carts> findCartOpt = cartsRepository.findByProductIdAndType(product.getId(), cartRequest.getType());
         Carts cart;
         if (findCartOpt.isPresent()) {
             cart = findCartOpt.get();
-            cart.setQuantity(cart.getQuantity() + cartRequest.getQuantity());
-            cart.setTotal(cart.getTotal() + totalPrice);
-            cartsRepository.save(cart);
+            cart.setQuantity(cart.getQuantity() + cartRequest.getQuantity()); // Menambah jumlah produk
+            cart.setTotal(cart.getTotal() + totalPrice); // Menambah total harga
+            cartsRepository.save(cart); // Menyimpan perubahan ke database
         } else {
             cart = new Carts();
             cart.setProduct(product);
             cart.setQuantity(cartRequest.getQuantity());
             cart.setTotal(totalPrice);
             cart.setType(cartRequest.getType());
-            cartsRepository.save(cart);
+            cartsRepository.save(cart); // Menyimpan keranjang baru ke database
         }
 
-        return cart;
+        return cart; // Mengembalikan keranjang yang telah ditambah atau diperbarui
     }
 }

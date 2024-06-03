@@ -30,7 +30,7 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Load products
+        // Memuat data produk
         ObjectMapper mapper = new ObjectMapper();
         TypeReference<List<Products>> typeReference = new TypeReference<List<Products>>(){};
         InputStream inputStream = new ClassPathResource("data/products.json").getInputStream();
@@ -38,14 +38,14 @@ public class DataLoader implements CommandLineRunner {
         productsRepository.saveAll(products);
         System.out.println("Products Loaded");
 
-        // Load types
+        // Memuat data tipe
         TypeReference<List<Types>> typeReferenceTypes = new TypeReference<List<Types>>(){};
         InputStream inputStreamTypes = new ClassPathResource("data/types.json").getInputStream();
         List<Types> types = mapper.readValue(inputStreamTypes, typeReferenceTypes);
         typesRepository.saveAll(types);
         System.out.println("Types Loaded");
 
-        // Load product_types
+        // Memuat data hubungan produk dengan tipe
         TypeReference<List<Product_Types>> typeReferenceProductTypes = new TypeReference<List<Product_Types>>(){};
         InputStream inputStreamProductTypes = new ClassPathResource("data/product_types.json").getInputStream();
         List<Product_Types> productTypes = mapper.readValue(inputStreamProductTypes, typeReferenceProductTypes);

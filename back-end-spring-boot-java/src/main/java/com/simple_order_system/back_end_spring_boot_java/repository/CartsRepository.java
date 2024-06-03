@@ -7,7 +7,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository // Anotasi untuk menandai bahwa interface ini adalah Repository
 public interface CartsRepository extends JpaRepository<Carts, Long> {
-    Optional<Carts> findByProductIdAndType(Long productId, String type);
+    Optional<Carts> findByProductIdAndType(Long productId, String type); // Metode untuk mencari cart berdasarkan ID produk dan tipe produk
 }

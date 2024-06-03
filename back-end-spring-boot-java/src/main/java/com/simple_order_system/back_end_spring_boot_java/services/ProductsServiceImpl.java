@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 import com.simple_order_system.back_end_spring_boot_java.entity.Products;
 import com.simple_order_system.back_end_spring_boot_java.repository.ProductsRepository;
 
-@Service
+@Service // Anotasi untuk menandai kelas ini sebagai komponen layanan di Spring
 public class ProductsServiceImpl implements ProductsService {
 
-    @Autowired
+    @Autowired // Anotasi untuk injeksi otomatis dependensi
     private ProductsRepository productsRepository;
 
     @Override
     public Page<Products> getAllProducts(Pageable pageable) {
-        return productsRepository.findAll(pageable);
+        return productsRepository.findAll(pageable); // Mengambil semua produk dengan dukungan paging
     }
 }
