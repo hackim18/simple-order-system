@@ -1,0 +1,62 @@
+[
+  {
+    "id": 11,
+    "name": "Asus",
+    "price": 17631614
+  },
+  {
+    "id": 12,
+    "name": "BlackBerry",
+    "price": 16796656
+  },
+  {
+    "id": 13,
+    "name": "Motorola",
+    "price": 16111831
+  },
+  {
+    "id": 14,
+    "name": "Huawei",
+    "price": 10510829
+  },
+  {
+    "id": 15,
+    "name": "Honor",
+    "price": 15977772
+  },
+  {
+    "id": 16,
+    "name": "Maxwest",
+    "price": 1318649
+  },
+  {
+    "id": 17,
+    "name": "QMobile",
+    "price": 8926307
+  },
+  {
+    "id": 18,
+    "name": "ZTE",
+    "price": 19718355
+  },
+  {
+    "id": 19,
+    "name": "Oppo",
+    "price": 14614059
+  },
+  {
+    "id": 110,
+    "name": "Oppo",
+    "price": 15325573
+  },
+  {
+    "id": 111,
+    "name": "Infinix",
+    "price": 12423573
+  },
+  {
+    "id": 112,
+    "name": "Iphone",
+    "price": 23443573
+  }
+]
