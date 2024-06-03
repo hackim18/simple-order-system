@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import com.simple_order_system.back_end_spring_boot_java.entity.Products;
 import com.simple_order_system.back_end_spring_boot_java.repository.ProductsRepository;
 
-@Service // Anotasi untuk menandai kelas ini sebagai komponen layanan di Spring
+@Service
 public class ProductsServiceImpl implements ProductsService {
 
-    @Autowired // Anotasi untuk injeksi otomatis dependensi
+    @Autowired
     private ProductsRepository productsRepository;
 
     @Override

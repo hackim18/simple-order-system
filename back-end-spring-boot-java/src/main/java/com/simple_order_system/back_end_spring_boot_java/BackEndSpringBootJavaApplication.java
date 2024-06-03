@@ -3,7 +3,7 @@ package com.simple_order_system.back_end_spring_boot_java;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication // Anotasi untuk menandakan aplikasi Spring Boot
+@SpringBootApplication
 public class BackEndSpringBootJavaApplication {
 
     // Metode utama untuk menjalankan aplikasi

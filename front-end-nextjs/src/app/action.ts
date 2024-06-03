@@ -1,11 +1,10 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { CartType, ProductType, Products } from "./type";
-import { redirect } from "next/navigation";
+import { CartType, Products } from "./type";
 
 export async function getAllProducts({ page, limit }: { page: number; limit: number }): Promise<Products> {
-  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + `/products?page=${page}&size=${limit}`, {
+  const res = await fetch(process.env.NEXT_PUBLIC_BASE_URL + `/products?page=${page - 1}&size=${limit}`, {
     cache: "no-cache",
   });
   if (!res.ok) {

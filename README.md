@@ -130,8 +130,8 @@ Untuk menguji API, Anda bisa menggunakan Postman atau alat serupa.
 1. Metode: `GET`
 2. URL: `http://localhost:8080/products`
 3. Params:
-4. page: 0 (default)
-5. size: 10 (default)
+   - page: 0 (default)
+   - size: 10 (default)
 
 #### Mendapatkan Semua Item di Keranjang
 
